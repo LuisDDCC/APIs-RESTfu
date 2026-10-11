@@ -1,0 +1,108 @@
+//Instituto
+@api = http://localhost:3020/api/v1/institutos
+#@api = http://187.229.22.99:8010/api/v1/institutos
+
+### GET - Todos los institutos
+GET {{api}}
+
+### GET ITEM - Por IdInstitutoOK (por defecto)
+GET {{api}}/1
+
+### GET ITEM - Por IdInstitutoOK explícito
+GET {{api}}/1?keyType=OK
+
+### GET ITEM - Por IdInstitutoBK
+GET {{api}}/18EUT0001U?keyType=BK
+
+//POST 
+### Agregar un Instituto
+POST {{api}}
+Content-Type: application/json
+
+{
+    "IdInstitutoOK": "2",
+    "IdInstitutoBK": "18EUT0002U",
+    "DesInstituto": "Instituto Tecnológico de Vallarta",
+    "Alias": "ITT",
+    "Matriz": "S",
+    "Giro": "Educación Superior",
+    "IdInstitutoSupOK": ""
+}
+
+### POST Agregar Muchos Institutos
+POST {{api}}/many
+Content-Type: application/json
+
+[
+    {
+        "IdInstitutoOK": "3",
+        "IdInstitutoBK": "18EUT0003U",
+        "DesInstituto": "Instituto Tecnológico de Guadalajara",
+        "Alias": "ITG",
+        "Matriz": "S",
+        "Giro": "Educación Superior",
+        "IdInstitutoSupOK": ""
+    },
+    {
+        "IdInstitutoOK": "4",
+        "IdInstitutoBK": "18EUT0004U",
+        "DesInstituto": "Instituto Tecnológico de Monterrey",
+        "Alias": "ITM",
+        "Matriz": "S",
+        "Giro": "Educación Superior",
+        "IdInstitutoSupOK": ""
+    }
+]
+
+### POST subdocumento (contacto a instituto existente)
+POST {{api}}/1/contactos
+Content-Type: application/json
+
+{
+    "Nombre": "Juan Pérez",
+    "Telefono": "311-123-4567",
+    "Email": "juan.perez@itt.edu.mx",
+    "Cargo": "Director General",
+    "detail_row": {
+        "FechaReg": "2024-01-05T10:20:33+07:00",
+        "UsuarioReg": "ADMIN",
+        "Activo": "S",
+        "Borrado": "N"
+    }
+}
+
+//PUT 
+### Modificar un Instituto
+PUT {{api}}/4
+Content-Type: application/json
+
+{
+    "IdInstitutoOK": "4",
+    "IdInstitutoBK": "18EUT0004U",
+    "DesInstituto": "Instituto Tecnológico de Monterrey",
+    "Alias": "ITM",
+    "Matriz": "S",
+    "Giro": "Educación Superior",
+    "IdInstitutoSupOK": "1"
+}
+
+### Modificar contacto existente en subdocumento
+PUT {{api}}/1/contactos
+Content-Type: application/json
+
+{
+    "Nombre": "Juan Pérez ACTUALIZADOASS",
+    "Telefono": "311-999-9998",
+    "Email": "juan.perez@itt.edu.mx",
+    "Cargo": "Subdirector General",
+    "detail_row": {
+        "FechaReg": "2024-01-05T10:20:33+07:00",
+        "UsuarioReg": "ADMIN",
+        "Activo": "S",
+        "Borrado": "N"
+    }
+}
+
+### DELETE Instituto por ID 
+DELETE {{api}}/6aab072a02c8ae4f677e44aa
+Content-Type: application/json

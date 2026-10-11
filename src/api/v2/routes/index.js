@@ -1,0 +1,28 @@
+import { Router } from 'express';
+import config from '../config/config.js';
+import { crearControlador } from '../controllers/crud.controller.js';
+import { crearRouter } from './crud.routes.js';
+
+import institutosService from '../services/institutos.service.js';
+import prodServService from '../services/prod-serv.service.js';
+import posicionesService from '../services/posiciones.service.js';
+import cadenaPosicionesService from '../services/cadena-posiciones.service.js';
+import usuariosService from '../services/usuarios.service.js';
+
+const crud = (servicio) => crearRouter(crearControlador(servicio));
+
+const routerAPI = (app) => {
+    const router = Router();
+    const api = config.API_URL;
+    app.use(api, router);
+
+    router.use('/institutos', crud(institutosService));
+    router.use('/productos-servicios', crud(prodServService));
+    router.use('/posiciones', crud(posicionesService));
+    router.use('/cadena-posiciones', crud(cadenaPosicionesService));
+    router.use('/usuarios', crud(usuariosService));
+
+    return router;
+};
+
+export default routerAPI;

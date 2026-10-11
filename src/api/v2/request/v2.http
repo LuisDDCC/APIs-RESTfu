@@ -1,0 +1,179 @@
+@baseUrl = http://localhost:3020/api/v1
+
+### ==================== INSTITUTOS ====================
+
+### Listar
+GET {{baseUrl}}/institutos
+
+### Crear (guarda la respuesta con el nombre "nuevoInstituto")
+# @name nuevoInstituto
+POST {{baseUrl}}/institutos
+Content-Type: application/json
+
+{
+  "id_instituto_ok": "5",
+  "id_instituto_bk": "TEST0005",
+  "des_instituto": "Instituto de prueba",
+  "alias": "PRB",
+  "matriz": "N",
+  "giro": "Educación Superior"
+}
+
+### Consultar uno (usa el id del registro recién creado)
+@institutoId = {{nuevoInstituto.response.body.id}}
+GET {{baseUrl}}/institutos/{{institutoId}}
+
+### Actualizar
+PUT {{baseUrl}}/institutos/{{institutoId}}
+Content-Type: application/json
+
+{
+  "alias": "PRB2"
+}
+
+### Eliminar
+DELETE {{baseUrl}}/institutos/{{institutoId}}
+
+
+### ==================== PRODUCTOS Y SERVICIOS ====================
+
+### Listar
+GET {{baseUrl}}/productos-servicios
+
+### Crear
+# @name nuevoProducto
+POST {{baseUrl}}/productos-servicios
+Content-Type: application/json
+
+{
+  "id_prod_serv_pk": 2,
+  "id_prod_serv_ok": "2",
+  "id_prod_serv_bk": "ENSA00002",
+  "des_prod_serv": "Producto de prueba 2",
+  "id_medida_ok": "PZA",
+  "id_medida_bk": "Pieza",
+  "cat_prod_serv_estatus": [
+    { "Actual": "S", "Observacion": "Activo", "TipoEstatus": "Actividad" }
+  ],
+  "cat_prod_serv_archivos": [],
+  "detail_row": { "Activo": "S", "Borrado": "N", "UsuarioReg": "admin" }
+}
+
+### Consultar uno
+@productoId = {{nuevoProducto.response.body.id}}
+GET {{baseUrl}}/productos-servicios/{{productoId}}
+
+### Actualizar
+PUT {{baseUrl}}/productos-servicios/{{productoId}}
+Content-Type: application/json
+
+{
+  "des_prod_serv": "Producto de prueba 2 (editado)"
+}
+
+### Eliminar
+DELETE {{baseUrl}}/productos-servicios/{{productoId}}
+
+
+### ==================== POSICIONES ====================
+
+### Listar
+GET {{baseUrl}}/posiciones
+
+### Crear
+# @name nuevaPosicion
+POST {{baseUrl}}/posiciones
+Content-Type: application/json
+
+{
+  "activo_subyacente": { "ticker": "MSFT", "nombre": "Microsoft", "precio_actual": 400 },
+  "fecha_consulta": "2026-10-07T00:00:00Z",
+  "contratos": [
+    { "tipo": "CALL", "strike": 410, "prima": 6.5, "volumen": 900, "iv": 0.25, "fecha_vencimiento": "2027-03-18" },
+    { "tipo": "PUT", "strike": 390, "prima": 5.2, "volumen": 700, "iv": 0.27, "fecha_vencimiento": "2027-03-18" }
+  ]
+}
+
+### Consultar uno
+@posicionId = {{nuevaPosicion.response.body.id}}
+GET {{baseUrl}}/posiciones/{{posicionId}}
+
+### Actualizar
+PUT {{baseUrl}}/posiciones/{{posicionId}}
+Content-Type: application/json
+
+{
+  "fecha_consulta": "2026-10-08T00:00:00Z"
+}
+
+### Eliminar
+DELETE {{baseUrl}}/posiciones/{{posicionId}}
+
+
+### ==================== CADENA DE POSICIONES ====================
+
+### Listar
+GET {{baseUrl}}/cadena-posiciones
+
+### Crear
+# @name nuevaCadena
+POST {{baseUrl}}/cadena-posiciones
+Content-Type: application/json
+
+{
+  "usuario": { "nombre": "Usuario Prueba", "id_usuario": "u999" },
+  "estrategia": { "fase": "F1", "nombre": "Iron Condor" },
+  "fecha_apertura": "2026-10-07T00:00:00Z",
+  "estado": "abierta",
+  "contratos": [
+    { "tipo": "PUT", "strike": 95, "prima": 1.2, "cantidad": 1, "tipo_operacion": "venta", "fecha_vencimiento": "2026-10-17" }
+  ],
+  "resultado_evaluacion": { "delta": 0.05, "gamma": 0.01, "theta": -0.08, "vega": 0.12, "rho": 0.02, "pnl_actual": 15 }
+}
+
+### Consultar uno
+@cadenaId = {{nuevaCadena.response.body.id}}
+GET {{baseUrl}}/cadena-posiciones/{{cadenaId}}
+
+### Actualizar
+PUT {{baseUrl}}/cadena-posiciones/{{cadenaId}}
+Content-Type: application/json
+
+{
+  "estado": "cerrada"
+}
+
+### Eliminar
+DELETE {{baseUrl}}/cadena-posiciones/{{cadenaId}}
+
+
+### ==================== USUARIOS ====================
+
+### Listar
+GET {{baseUrl}}/usuarios
+
+### Crear (la API convierte password en hash)
+# @name nuevoUsuario
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Usuario Prueba",
+  "email": "usuario.prueba@correo.com",
+  "password": "123456"
+}
+
+### Consultar uno
+@usuarioId = {{nuevoUsuario.response.body.id}}
+GET {{baseUrl}}/usuarios/{{usuarioId}}
+
+### Actualizar (solo nombre y email)
+PUT {{baseUrl}}/usuarios/{{usuarioId}}
+Content-Type: application/json
+
+{
+  "nombre": "Usuario Prueba Editado"
+}
+
+### Eliminar
+DELETE {{baseUrl}}/usuarios/{{usuarioId}}

@@ -1,0 +1,275 @@
+@api = http://localhost:3020/api/v1/prod-serv
+#@api = http://187.229.22.99:8010/api/v1/prod-serv
+### GET
+GET {{api}}
+### GET ITEM
+GET {{api}}/2
+### GET ITEM
+GET {{api}}/1?keyType=OK
+### GET ITEM por BK
+GET {{api}}/COMP-003?keyType=BK
+
+//FIC: API POST
+//----------------------------------------
+### POST ITEM - Producto de prueba 1
+POST {{api}}
+Content-Type: application/json
+
+{
+  "IdProdServPK": 1,
+  "IdProdServOK": "1",
+  "IdProdServBK": "ENSA28743",
+  "IdProdServMaOK": "MA001",
+  "IdProdServMaBK": "MA-001",
+  "DesProdServ": "Producto de prueba 1",
+  "IdMedidaOK": "PZA",
+  "IdMedidaBK": "Pieza",
+  "cat_prod_serv_estatus": [
+    {
+      "IdTipoGenEstatusOk": "1",
+      "IdGenEstatusOk": "ACT",
+      "TipoEstatus": "Actividad",
+      "Actual": "S",
+      "Observacion": "Activo",
+      "detail_row": {
+        "FechaReg": "2026-09-08T00:00:00.000Z",
+        "UsuarioReg": "admin"
+      }
+    }
+  ],
+  "cat_prod_serv_archivos": [],
+  "detail_row": {
+    "FechaReg": "2026-09-08T00:00:00.000Z",
+    "UsuarioReg": "admin",
+    "FechaUltMod": "2026-09-08T00:00:00.000Z",
+    "UsuarioMod": "admin",
+    "Activo": "S",
+    "Borrado": "N"
+  }
+}
+
+### POST ITEM - Laptop Dell Inspiron 15
+POST {{api}}
+Content-Type: application/json
+
+{
+  "IdProdServPK": 2,
+  "IdProdServOK": "2",
+  "IdProdServBK": "COMP-002",
+  "IdProdServMaOK": "HW001",
+  "IdProdServMaBK": "HARDWARE",
+  "DesProdServ": "Laptop Dell Inspiron 15",
+  "IdMedidaOK": "PZA",
+  "IdMedidaBK": "Pieza",
+  "cat_prod_serv_estatus": [
+    {
+      "IdTipoGenEstatusOk": "1",
+      "IdGenEstatusOk": "ACT",
+      "TipoEstatus": "Actividad",
+      "Actual": "S",
+      "Observacion": "Producto activo",
+      "detail_row": {
+        "FechaReg": "2026-09-08T00:00:00Z",
+        "UsuarioReg": "admin"
+      }
+    }
+  ],
+  "cat_prod_serv_archivos": [],
+  "detail_row": {
+    "FechaReg": "2026-09-08T00:00:00Z",
+    "UsuarioReg": "admin",
+    "FechaUltMod": "2026-09-08T00:00:00Z",
+    "UsuarioMod": "admin",
+    "Activo": "S",
+    "Borrado": "N"
+  }
+}
+
+### POST ITEM - Switch Cisco 24 puertos
+POST {{api}}
+Content-Type: application/json
+
+{
+  "IdProdServPK": 3,
+  "IdProdServOK": "3",
+  "IdProdServBK": "COMP-003",
+  "IdProdServMaOK": "RED001",
+  "IdProdServMaBK": "REDES",
+  "DesProdServ": "Switch Cisco 24 puertos",
+  "IdMedidaOK": "PZA",
+  "IdMedidaBK": "Pieza",
+  "cat_prod_serv_estatus": [
+    {
+      "IdTipoGenEstatusOk": "1",
+      "IdGenEstatusOk": "ACT",
+      "TipoEstatus": "Actividad",
+      "Actual": "S",
+      "Observacion": "Producto activo",
+      "detail_row": {
+        "FechaReg": "2026-09-08T00:00:00Z",
+        "UsuarioReg": "admin"
+      }
+    }
+  ],
+  "cat_prod_serv_archivos": [],
+  "detail_row": {
+    "FechaReg": "2026-09-08T00:00:00Z",
+    "UsuarioReg": "admin",
+    "FechaUltMod": "2026-09-08T00:00:00Z",
+    "UsuarioMod": "admin",
+    "Activo": "S",
+    "Borrado": "N"
+  }
+}
+
+### POST ITEM - Agregar Producto y/o Servicio
+POST {{api}}
+Content-Type: application/json
+
+{
+  "IdProdServPK": 100,
+  "IdProdServOK": "100",
+  "IdProdServBK": "ENSA100",
+  "IdProdServMaOK": "1",
+  "IdProdServMaBK": "1",
+  "DesProdServ": "ENFRIADOR VERTICAL G326 2PTAS CO2",
+  "IdUMedidaOK": "1",
+  "IdUMedidaBK": "1",
+  "cat_prod_serv_estatus": [
+    {
+      "IdTipoGenEstatusOK": "4",
+      "IdGenEstatusOK": "23",
+      "TipoEstatus": "VIGENTE",
+      "Actual": "S",
+      "Observacion": "Ninguna",
+      "detail_row": {
+        "FechaReg": "2022-01-05T10:20:33+07:00",
+        "UsuarioReg": "FIBARRAC"
+      }
+    }
+  ],
+  "detail_row": {
+    "FechaReg": "2022-01-05T10:20:33+07:00",
+    "UsuarioReg": "FIBARRAC",
+    "FechaUltMod": "2022-01-05T10:20:33+07:00",
+    "UsuarioMod": "FIBARRAC",
+    "Activo": "S",
+    "Borrado": "N"
+  }
+}
+
+### POST MANY PWA - Agregar varios Productos desde Web/PWA
+POST {{api}}/many-pwa
+Content-Type: application/json
+
+[
+  {
+    "IdProdServPK": 4,
+    "IdProdServOK": "4",
+    "IdProdServBK": "COMP-004",
+    "IdProdServMaOK": "HW001",
+    "IdProdServMaBK": "HARDWARE",
+    "DesProdServ": "Mouse Logitech MX Master",
+    "IdMedidaOK": "PZA",
+    "IdMedidaBK": "Pieza",
+    "cat_prod_serv_estatus": [
+      {
+        "IdTipoGenEstatusOk": "1",
+        "IdGenEstatusOk": "ACT",
+        "TipoEstatus": "Actividad",
+        "Actual": "S",
+        "Observacion": "Producto activo",
+        "detail_row": {
+          "FechaReg": "2026-09-11T00:00:00.000Z",
+          "UsuarioReg": "admin"
+        }
+      }
+    ],
+    "cat_prod_serv_archivos": [],
+    "detail_row": {
+      "FechaReg": "2026-09-11T00:00:00.000Z",
+      "UsuarioReg": "admin",
+      "FechaUltMod": "2026-09-11T00:00:00.000Z",
+      "UsuarioMod": "admin",
+      "Activo": "S",
+      "Borrado": "N"
+    }
+  },
+  {
+    "IdProdServPK": 5,
+    "IdProdServOK": "5",
+    "IdProdServBK": "COMP-005",
+    "IdProdServMaOK": "HW001",
+    "IdProdServMaBK": "HARDWARE",
+    "DesProdServ": "Teclado Mecánico Corsair K95",
+    "IdMedidaOK": "PZA",
+    "IdMedidaBK": "Pieza",
+    "cat_prod_serv_estatus": [
+      {
+        "IdTipoGenEstatusOk": "1",
+        "IdGenEstatusOk": "ACT",
+        "TipoEstatus": "Actividad",
+        "Actual": "S",
+        "Observacion": "Producto activo",
+        "detail_row": {
+          "FechaReg": "2026-09-11T00:00:00.000Z",
+          "UsuarioReg": "admin"
+        }
+      }
+    ],
+    "cat_prod_serv_archivos": [],
+    "detail_row": {
+      "FechaReg": "2026-09-11T00:00:00.000Z",
+      "UsuarioReg": "admin",
+      "FechaUltMod": "2026-09-11T00:00:00.000Z",
+      "UsuarioMod": "admin",
+      "Activo": "S",
+      "Borrado": "N"
+    }
+  }
+]
+
+//Agregar estatus a Laptop Dell (id: 2)
+POST {{api}}/2/estatus
+Content-Type: application/json
+
+[
+  {
+    "IdTipoGenEstatusOk": "2",
+    "IdGenEstatusOk": "INA",
+    "TipoEstatus": "Inactividad",
+    "Actual": "N",
+    "Observacion": "Producto dado de baja temporalmente",
+    "detail_row": {
+      "FechaReg": "2026-09-11T00:00:00.000Z",
+      "UsuarioReg": "admin"
+    }
+  }
+]
+
+//FIC: API PUT
+//----------------------------------------
+### PUT ITEM - Actualizar Producto completo
+PUT {{api}}/COMP-002
+Content-Type: application/json
+
+{
+  "DesProdServ": "Laptop Dell Inspiron 15 - ACTUALIZADA"
+}
+//PUT (MODIFY) 
+### PUT ITEM - Actualizar estatus dentro del arreglo
+PUT {{api}}/COMP-003/estatus
+Content-Type: application/json
+
+{
+  "IdGenEstatusOk": "ACT",
+  "TipoEstatus": "SUSPENDIDO A",
+  "Actual": "N",
+  "Observacion": "Producto descontinuado temporalmente"
+}
+
+//FIC: API DELETE
+//----------------------------------------
+### DELETE ITEM - Eliminar Producto por BK
+DELETE {{api}}/COMP-002
+Content-Type: application/json

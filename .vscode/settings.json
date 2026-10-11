@@ -1,0 +1,36 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#eef2f7",
+        "activityBar.activeBorder": "#15202b",
+        "activityBar.background": "#eef2f7",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#cc93ac",
+        "activityBarBadge.foreground": "#15202b",
+        "activityBarTop.activeBackground": "#eef2f7",
+        "activityBarTop.activeBorder": "#15202b",
+        "activityBarTop.background": "#eef2f7",
+        "activityBarTop.foreground": "#15202b",
+        "activityBarTop.inactiveForeground": "#15202b99",
+        "commandCenter.border": "#15202b99",
+        "commandCenter.foreground": "#15202b",
+        "sash.hoverBorder": "#eef2f7",
+        "statusBar.background": "#ccd8e6",
+        "statusBar.debuggingBackground": "#ccd8e6",
+        "statusBar.debuggingForeground": "#15202b",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#aabed5",
+        "statusBarItem.remoteBackground": "#c07f9d",
+        "statusBarItem.remoteForeground": "#15202b",
+        "titleBar.activeBackground": "#ccd8e6",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#ccd8e699",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    //#8CB2E8   #FF3D00  ##ccd8e6
+    "peacock.color": "#ccd8e6",
+    "statusbartext": {
+        "active": true,
+        "text": "𝐄𝐫𝐢𝐜𝐤 𝐀𝐥𝐞𝐣𝐚𝐧𝐝𝐫𝐨 𝐌𝐢𝐫𝐚𝐦𝐨𝐧𝐭𝐞𝐬 𝐇𝐮𝐞𝐫𝐭𝐚",
+    },
+}
