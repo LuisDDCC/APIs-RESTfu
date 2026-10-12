@@ -1,4 +1,4 @@
-@api = http://localhost:3020/api/v1/prod-serv
+@api = http://localhost:3000/api/v1/prod-serv
 #@api = http://187.229.22.99:8010/api/v1/prod-serv
 ### GET
 GET {{api}}
@@ -247,9 +247,9 @@ Content-Type: application/json
   }
 ]
 
-//FIC: API PUT
-//----------------------------------------
-### PUT ITEM - Actualizar Producto completo
+//PUT
+//Actualizar el producto Completo 
+
 PUT {{api}}/COMP-002
 Content-Type: application/json
 
@@ -268,8 +268,8 @@ Content-Type: application/json
   "Observacion": "Producto descontinuado temporalmente"
 }
 
-//FIC: API DELETE
-//----------------------------------------
-### DELETE ITEM - Eliminar Producto por BK
-DELETE {{api}}/COMP-002
+//DElte 
+//--Eliminar producto por BK 
+
+DELETE {{api}}/ENSA28743
 Content-Type: application/json
