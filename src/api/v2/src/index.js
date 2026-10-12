@@ -1,6 +1,8 @@
 import app from './app.js';
 import config from '../config/config.js';
-app.listen(app.get('port'));
+
+app.listen(app.get('puerto'), () => {
 console.log(
-  `Server is running on: http://${config.HOST}:${app.get('port')}${config.API_URL}`
+  `Servidor está corriendo en: http://${config.HOST}:${app.get('puerto')}${config.API_URL}`
 );
+});
