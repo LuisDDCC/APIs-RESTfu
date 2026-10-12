@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3020/api/v1
+@baseUrl = http://localhost:3020/api/v2
 
 ### ==================== INSTITUTOS ====================
 
@@ -167,12 +167,49 @@ Content-Type: application/json
 @usuarioId = {{nuevoUsuario.response.body.id}}
 GET {{baseUrl}}/usuarios/{{usuarioId}}
 
-### Actualizar (solo nombre y email)
+### Actualizar (puede ir nombre, email y/o password; solo cambia lo que se envía)
 PUT {{baseUrl}}/usuarios/{{usuarioId}}
 Content-Type: application/json
 
 {
   "nombre": "Usuario Prueba Editado"
+}
+
+### Cambiar password (la API lo guarda como hash)
+PUT {{baseUrl}}/usuarios/{{usuarioId}}
+Content-Type: application/json
+
+{
+  "password": "nuevo123"
+}
+
+### Validación: falta password -> 400
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Sin Password",
+  "email": "sin.password@correo.com"
+}
+
+### Validación: email inválido -> 400
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Email Malo",
+  "email": "esto-no-es-un-email",
+  "password": "123456"
+}
+
+### Validación: email repetido -> 409
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Usuario Repetido",
+  "email": "usuario.prueba@correo.com",
+  "password": "123456"
 }
 
 ### Eliminar
