@@ -1,5 +1,8 @@
+// Traduce los errores (de validación o de Supabase/PostgreSQL) a códigos HTTP
 const manejarError = (res, error) => {
+    if (error.name === 'ValidationError') return res.status(400).json({ error: error.message });
     if (error.code === 'PGRST116') return res.status(404).json({ error: 'No encontrado' });
+    if (error.code === '22P02') return res.status(400).json({ error: 'El id o algún dato tiene un formato inválido' });
     if (error.code === '23505') return res.status(409).json({ error: 'Registro duplicado' });
     res.status(500).json({ error: error.message });
 };
