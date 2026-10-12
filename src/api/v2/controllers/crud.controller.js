@@ -1,7 +1,21 @@
+
 const manejarError = (res, error) => {
-    if (error.code === 'PGRST116') return res.status(404).json({ error: 'No encontrado' });
-    if (error.code === '23505') return res.status(409).json({ error: 'Registro duplicado' });
-    res.status(500).json({ error: error.message });
+    if (error.code === 'PGRST116') {
+        return res.status(404).json({ error: 'No encontrado' });
+    }
+
+    if (error.code === '23505') {
+        return res.status(409).json({ error: 'Registro duplicado' });
+    }
+
+    // Errores de validación del modelo
+    if (!error.code && error.message) {
+        return res.status(400).json({ error: error.message });
+    }
+
+    return res.status(500).json({
+        error: 'Error interno del servidor',
+    });
 };
 
 export const crearControlador = (servicio) => ({

@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3020/api/v1
+@baseUrl = http://localhost:3020/api/v2
 
 ### ==================== INSTITUTOS ====================
 
@@ -28,7 +28,7 @@ PUT {{baseUrl}}/institutos/{{institutoId}}
 Content-Type: application/json
 
 {
-  "alias": "PRB2"
+  "alias": "PRB3"
 }
 
 ### Eliminar

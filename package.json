@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "babel-node": "babel-node",
-    "dev": "nodemon --exec npm run babel-node -- src/index.js",
+    "dev": "nodemon --exec npm run babel-node -- src/api/v2/src/index.js",
     "build": "babel src --out-dir dist",
     "start": "node dist/index.js"
   },
@@ -16,7 +16,8 @@
   "dependencies": {
     "@babel/runtime": "^7.29.7",
     "@hapi/boom": "^10.0.1",
-    "@supabase/supabase-js": "^2.117.2",
+    "@supabase/supabase-js": "^2.117.3",
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
